@@ -1,0 +1,53 @@
+<h1>Lista People com sono:</h1>
+
+<ul *ngFor= "let person of people">
+    <li> {{person.name}} de {{person.age}} anos precisa dormir. Nível de sono {{person.level}} </li>
+</ul>
+
+<br>
+-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-
+<br>
+
+<p>IF - Somente idade:</p>
+<ul *ngFor="let person of people">
+    <li *ngIf="person.age <= 3"> {{person.name}} de {{person.age}} anos precisa dormir. Nível de sono {{person.level}} </li>
+</ul>
+
+
+<br>
+-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-
+<br>
+
+<p>IF - Somente level:</p>
+<ul *ngFor="let person of people">
+    <li *ngIf="person.level <= 'G' "> {{person.name}} de {{person.age}} anos precisa dormir. Nível de sono {{person.level}} </li>
+</ul>
+
+<br>
+-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-
+<br>
+
+<p>Switch - Somente level:</p>
+
+<ul *ngFor="let person of people">
+
+    <div [ngSwitch]="person.level">
+
+    <li *ngSwitchCase="'P'">
+        A pessoa {{person.name}} está com o nível de sono: {{person.level}}, pouco sono
+    </li>
+    <li *ngSwitchCase="'M'">
+         A pessoa {{person.name}} está com o nível de sono:  {{person.level}}, muito sono
+    </li>
+    <li *ngSwitchCase="'G'">
+        A pessoa {{person.name}} está com o nível de sono:  {{person.level}}, super ultra sono
+    </li>
+
+    <li *ngSwitchDefault>    
+        A pessoa {{person.name}} não tem sono
+    </li>
+
+</div>
+    
+</ul>
+
